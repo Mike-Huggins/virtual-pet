@@ -1,0 +1,14 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "Jest"
+  },
+  "author": "Mike Huggins",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
