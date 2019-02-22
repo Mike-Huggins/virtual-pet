@@ -32,7 +32,7 @@ describe('Pet', () => {
 
     });
 
-    it ('Test walk function effect on fitness', () => {
+    xit ('Test walk function effect on fitness', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -49,5 +49,18 @@ describe('Pet', () => {
       pet.walk();
       expect(pet.fitness).toEqual(10);
     });
+
+    it ('Decrease hunger levels test', () => {
+      const pet = new Pet ('PoochyPoo');
+      expect(pet.hunger).toEqual(0);
+      expect(pet.fitness).toEqual(10);
+      pet.growUp();
+      expect(pet.hunger).toEqual(5);
+      expect(pet.fitness).toEqual(7);
+      pet.feed();
+      expect(pet.hunger).toEqual(2);
+      pet.feed();
+      expect(pet.hunger).toEqual(0);
+    })
 
 });
