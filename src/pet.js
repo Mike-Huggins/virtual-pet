@@ -1,5 +1,5 @@
-function Pet(name) {
-    return this.name = name
+function Pet() {
+    
   }
   
 
