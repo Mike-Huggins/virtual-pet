@@ -50,7 +50,7 @@ describe('Pet', () => {
       expect(pet.fitness).toEqual(10);
     });
 
-    it ('Decrease hunger levels test', () => {
+    xit ('Decrease hunger levels test', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -61,6 +61,35 @@ describe('Pet', () => {
       expect(pet.hunger).toEqual(2);
       pet.feed();
       expect(pet.hunger).toEqual(0);
-    })
+    });
 
+
+    it ('use checkUp function to get current sitrep of pet status', () => {
+      const pet = new Pet ('PoochyPoo');
+      expect(pet.hunger).toEqual(0);
+      expect(pet.fitness).toEqual(10);
+      expect(pet.checkUp()).toEqual('I feel great!');
+      pet.growUp();
+      expect(pet.hunger).toEqual(5);
+      expect(pet.fitness).toEqual(7);
+      expect (pet.checkUp()).toEqual('I am hungry');
+      pet.growUp();
+      expect(pet.hunger).toEqual(10);
+      expect(pet.fitness).toEqual(4);
+      expect (pet.checkUp()).toEqual('I am hungry');
+      pet.growUp();
+      expect(pet.hunger).toEqual(15);
+      expect(pet.fitness).toEqual(1);
+      expect (pet.checkUp()).toEqual('I am hungry AND I need a walk');
+      pet.feed();
+      expect(pet.hunger).toEqual(12);
+      pet.feed();
+      expect(pet.hunger).toEqual(9);
+      pet.feed();
+      expect(pet.hunger).toEqual(6);
+      pet.feed();
+      expect(pet.hunger).toEqual(3);
+      expect (pet.checkUp()).toEqual('I need a walk');
+    });
+   
 });
