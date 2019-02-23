@@ -109,4 +109,27 @@ describe('Pet', () => {
       expect(pet.isAlive).toEqual(true);
     });
    
+    it('throws an error if the pet is not alive for feed', () => {    
+          const pet = new Pet('Fido');
+          pet.age = 30;
+          expect(pet.feed).toThrow('Your pet is no longer alive :(');
+        });   
+    
+    it('throws an error if the pet is not alive for growUp', () => {    
+          const pet = new Pet('Fido');
+          pet.age = 30;
+          expect(pet.growUp).toThrow('Your pet is no longer alive :(');
+        });   
+    
+    it('throws an error if the pet is not alive for walk', () => {    
+          const pet = new Pet('Fido');
+          pet.age = 30;
+          expect(pet.walk).toThrow('Your pet is no longer alive :(');
+        });   
+        
+    it('throws an error if the pet is not alive for checkUp', () => {    
+          const pet = new Pet('Fido');
+          pet.age = 30;
+          expect(pet.checkUp).toThrow('Your pet is no longer alive :(');
+        });   
 });
