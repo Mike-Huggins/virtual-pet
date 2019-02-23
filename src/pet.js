@@ -47,16 +47,11 @@ Pet.prototype.checkUp = function() {
   };
 }
 
- /*
-    if the pet's fitness is 3 or less, it should return 'I need a walk'.
-
-if the pet's hunger is 5 or more, it should return 'I am hungry'.
-
-if both of the above are true, it should return 'I am hungry AND I need a walk'
-
-if neither of the above are true, it should return 'I feel great!'*/
-
-
+Pet.prototype = {
+  get isAlive() {
+    return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+  }
+};
 
 module.exports =  {
 Pet

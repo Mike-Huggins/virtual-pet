@@ -64,7 +64,7 @@ describe('Pet', () => {
     });
 
 
-    it ('use checkUp function to get current sitrep of pet status', () => {
+    xit ('use checkUp function to get current sitrep of pet status', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -90,6 +90,23 @@ describe('Pet', () => {
       pet.feed();
       expect(pet.hunger).toEqual(3);
       expect (pet.checkUp()).toEqual('I need a walk');
+    });
+
+    xit ('check if pet is alive', () => {
+      const pet = new Pet ('PoochyPoo');
+      expect(pet.isAlive).toEqual(true);
+      pet.age = 31;
+      expect(pet.isAlive).toEqual(false);
+      pet.age = 5;
+      expect(pet.isAlive).toEqual(true);
+      pet.hunger = 11;
+      expect(pet.isAlive).toEqual(false);
+      pet.hunger = 0;
+      expect(pet.isAlive).toEqual(true);
+      pet.fitness = 0;
+      expect(pet.isAlive).toEqual(false);
+      pet.fitness = 10;
+      expect(pet.isAlive).toEqual(true);
     });
    
 });
