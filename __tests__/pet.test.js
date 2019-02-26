@@ -1,28 +1,28 @@
 const { Pet } = require('../src/pet.js');
 
 describe('Pet', () => {
-    xit('creates a new pet when parameters are passed into the constructor function', () => {
+    it('creates a new pet when parameters are passed into the constructor function', () => {
       expect(new Pet()).toBeInstanceOf(Object);
     });
 
-    xit('creates a new pet when parameters are passed into the constructor function', () => {
+    it('creates a new pet when parameters are passed into the constructor function', () => {
         const pet = new Pet ('PoochyPoo');
         expect(pet.name).toEqual('PoochyPoo');
       });
     
-    xit ('Test that the pet age is 0 at the start', () => {
+    it ('Test that the pet age is 0 at the start', () => {
         const pet = new Pet ('PoochyPoo');
         expect(pet.age).toEqual(0);
     });
 
-    xit ('Check that the growUp method works correctly and iterates the age by 1', () => {
+    it ('Check that the growUp method works correctly and iterates the age by 1', () => {
         const pet = new Pet ('PoochyPoo');
         expect(pet.age).toEqual(0);
         pet.growUp();
         expect(pet.age).toEqual(1);
     });
 
-    xit ('check that growUp correctly implements new hunger and fitness levels', () => {
+    it ('check that growUp correctly implements new hunger and fitness levels', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -32,25 +32,18 @@ describe('Pet', () => {
 
     });
 
-    xit ('Test walk function effect on fitness', () => {
+    it ('Test walk function effect on fitness', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
       pet.growUp();
       expect(pet.hunger).toEqual(5);
       expect(pet.fitness).toEqual(7);
-      pet.growUp();
-      expect(pet.hunger).toEqual(10);
-      expect(pet.fitness).toEqual(4);
-      pet.walk();
-      expect(pet.fitness).toEqual(8);
-      pet.walk();
-      expect(pet.fitness).toEqual(10);
       pet.walk();
       expect(pet.fitness).toEqual(10);
     });
 
-    xit ('Decrease hunger levels test', () => {
+    it ('Decrease hunger levels test', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -64,7 +57,7 @@ describe('Pet', () => {
     });
 
 
-    xit ('use checkUp function to get current sitrep of pet status', () => {
+    it ('use checkUp function to get current sitrep of pet status', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.hunger).toEqual(0);
       expect(pet.fitness).toEqual(10);
@@ -74,25 +67,17 @@ describe('Pet', () => {
       expect(pet.fitness).toEqual(7);
       expect (pet.checkUp()).toEqual('I am hungry');
       pet.growUp();
-      expect(pet.hunger).toEqual(10);
-      expect(pet.fitness).toEqual(4);
-      expect (pet.checkUp()).toEqual('I am hungry');
-      pet.growUp();
-      expect(pet.hunger).toEqual(15);
-      expect(pet.fitness).toEqual(1);
+      pet.hunger = 5
+      pet.fitness = 3
       expect (pet.checkUp()).toEqual('I am hungry AND I need a walk');
       pet.feed();
-      expect(pet.hunger).toEqual(12);
+      expect(pet.hunger).toEqual(2);
       pet.feed();
-      expect(pet.hunger).toEqual(9);
-      pet.feed();
-      expect(pet.hunger).toEqual(6);
-      pet.feed();
-      expect(pet.hunger).toEqual(3);
+      expect(pet.hunger).toEqual(0);
       expect (pet.checkUp()).toEqual('I need a walk');
     });
 
-    xit ('check if pet is alive', () => {
+    it ('check if pet is alive', () => {
       const pet = new Pet ('PoochyPoo');
       expect(pet.isAlive).toEqual(true);
       pet.age = 31;
@@ -109,25 +94,25 @@ describe('Pet', () => {
       expect(pet.isAlive).toEqual(true);
     });
    
-    xit('throws an error if the pet is not alive for feed', () => {    
+    it('throws an error if the pet is not alive for feed', () => {    
           const pet = new Pet('Fido');
           pet.age = 30;
           expect(pet.feed).toThrow('Your pet is no longer alive :(');
         });   
     
-    xit('throws an error if the pet is not alive for growUp', () => {    
+    it('throws an error if the pet is not alive for growUp', () => {    
           const pet = new Pet('Fido');
           pet.age = 30;
           expect(pet.growUp).toThrow('Your pet is no longer alive :(');
         });   
     
-    xit('throws an error if the pet is not alive for walk', () => {    
+    it('throws an error if the pet is not alive for walk', () => {    
           const pet = new Pet('Fido');
           pet.age = 30;
           expect(pet.walk).toThrow('Your pet is no longer alive :(');
         });   
         
-    xit('throws an error if the pet is not alive for checkUp', () => {    
+    it('throws an error if the pet is not alive for checkUp', () => {    
           const pet = new Pet('Fido');
           pet.age = 30;
           expect(pet.checkUp).toThrow('Your pet is no longer alive :(');
